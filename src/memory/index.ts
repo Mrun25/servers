@@ -379,7 +379,8 @@ const RelationSchema = z.object({
   relationType: z.string().describe("The type of the relation")
 });
 
-const server = new McpServer({
+// Exported so tests can inspect the registered tools and their annotations.
+export const server = new McpServer({
   name: "memory-server",
   version: SERVER_VERSION,
 });
@@ -412,7 +413,7 @@ server.registerTool(
     },
     annotations: {
       readOnlyHint: false,
-      destructiveHint: false,
+      destructiveHint: true,
       idempotentHint: false,
       openWorldHint: false,
     }
@@ -441,7 +442,7 @@ server.registerTool(
     },
     annotations: {
       readOnlyHint: false,
-      destructiveHint: false,
+      destructiveHint: true,
       idempotentHint: false,
       openWorldHint: false,
     }
@@ -476,7 +477,7 @@ server.registerTool(
     },
     annotations: {
       readOnlyHint: false,
-      destructiveHint: false,
+      destructiveHint: true,
       idempotentHint: false,
       openWorldHint: false,
     }
