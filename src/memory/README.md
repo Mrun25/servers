@@ -55,6 +55,9 @@ Example:
 ## API
 
 ### Tools
+
+Note: the `create_entities`, `create_relations` and `add_observations` tools each rewrite the whole memory file from the parsed graph on every call. Content the current schema does not model (extra fields written by older versions or other clients, unknown record types, malformed lines) is dropped on write, so these tools are annotated `destructiveHint: true`.
+
 - **create_entities**
   - Create multiple new entities in the knowledge graph
   - Input: `entities` (array of objects)
